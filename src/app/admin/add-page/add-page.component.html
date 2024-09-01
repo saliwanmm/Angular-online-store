@@ -1,0 +1,40 @@
+<form>
+
+    <h2 class="text-center">Add product</h2>
+
+    <!-- *********************************** -->
+    <div class="form-contril">
+        <label for="type">Type</label>
+        <select formControlName="type">
+            <option value="Phone">Phone</option>
+            <option value="Tablet">Tablet</option>
+            <option value="Laptop">Laptop</option>
+        </select>
+        <div class="validation">
+            @if (form.get("type")?.touched && form.get("type")?.invalid) {
+            <small>
+                @if (form.get("type")?.errors?.["required"]) {Chose product type}
+            </small>
+            }
+        </div>
+    </div>
+    <!-- *********************************** -->
+    <div class="form-contril">
+        <label for="title">Name</label>
+        <input id="title" type="title" formControlName="title">
+        <div class="validation">
+            @if (form.get("title")?.touched && form.get("title")?.invalid) {
+            <small>
+                @if (form.get("title")?.errors?.["required"]) {Enter product name}
+            </small>
+            }
+        </div>
+    </div>
+    <!-- *********************************** -->
+    <div class="form-contril">
+        <label for="type">Photo</label>
+        <quill-editor formControlName="photo"></quill-editor>
+    </div>
+    <!-- *********************************** -->
+
+</form>
