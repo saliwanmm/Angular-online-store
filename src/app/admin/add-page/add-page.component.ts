@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { QuillModule } from 'ngx-quill';
+// import { QuillModule } from 'ngx-quill';
+import { AngularEditorModule, AngularEditorConfig } from '@kolkov/angular-editor';
 import { CommonModule } from '@angular/common';
 
 import { ProductService } from '../../shared/product.service';
@@ -8,7 +9,7 @@ import { ProductService } from '../../shared/product.service';
 @Component({
   selector: 'app-add-page',
   standalone: true,
-  imports: [QuillModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, AngularEditorModule],
   templateUrl: './add-page.component.html',
   styleUrl: './add-page.component.scss'
 })
