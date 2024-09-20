@@ -4,16 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../../environments/environment';
 import { tap } from 'rxjs';
-
-interface User {
-    email: string;
-    password: string;
-}
-
-interface AuthResponse {
-  expiresIn: string;
-  idToken: string;
-}
+import { User, AuthResponse } from './interfaces';
 
 @Injectable({
   providedIn: 'root'

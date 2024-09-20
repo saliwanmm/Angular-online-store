@@ -1,1 +1,77 @@
-<p>cart-page works!</p>
+<div class="container">
+    @if (cartProducts.length > 0) {
+    <h2 class="text-center">Your order</h2>
+
+    <table>
+        <tbody>
+            <tr *ngFor="let cartProduct of cartProducts; let i = index">
+                <td>{{cartProduct.type}}</td>
+                <td>{{cartProduct.title}}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="delete(cartProduct)">Delete</button>
+                </td>
+                <td>{{cartProduct.price}} $</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <b class="right">Total: {{totalPrice}} $</b>
+
+    <h2 class="text-center">Delivery</h2>
+
+    <div class="text-center text-danger" *ngIf="added">{{added}}</div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-control">
+            <label for="name">Name</label>
+            <input id="name" type="name" formControlName="name">
+            <div class="validation">
+                @if (form.get("name")?.touched && form.get("name")?.invalid) {
+                <small>
+                    @if (form.get("name")?.errors?.["required"]) {Enter your name}
+                </small>
+                }
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="phone">Phone number</label>
+            <input id="phone" type="phone" formControlName="phone">
+            <div class="validation">
+                @if (form.get("phone")?.touched && form.get("phone")?.invalid) {
+                <small>
+                    @if (form.get("phone")?.errors?.["required"]) {Enter your phone number}
+                </small>
+                }
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="address">Address</label>
+            <input id="address" type="address" formControlName="address">
+            <div class="validation">
+                @if (form.get("address")?.touched && form.get("address")?.invalid) {
+                <small>
+                    @if (form.get("address")?.errors?.["required"]) {Enter your address}
+                </small>
+                }
+            </div>
+        </div>
+
+        <div class="form-control">
+            <label for="payment">Payment method</label>
+            <select formControlName="payment">
+                <option value="Cash">Cash</option>
+                <option value="Card">Card</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted">Add
+            product</button>
+
+    </form>
+    } @else {
+    <h2 class="text-center">Cart is empty, select product</h2>
+    }
+</div>

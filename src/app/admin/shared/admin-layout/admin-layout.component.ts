@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { RouterLink } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
 import { AuthService } from '../../../shared/auth.service';
 import { Router } from '@angular/router';
 

@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { QuillModule } from "ngx-quill";
 
 import { authGuard } from "../shared/auth.guard";
 
@@ -11,6 +12,7 @@ import { AddPageComponent } from "./add-page/add-page.component";
 import { DashboardPageComponent } from "./dashboard-page/dashboard-page.component";
 import { EditPageComponent } from "./edit-page/edit-page.component";
 import { OrdersPageComponent } from "./orders-page/orders-page.component";
+
 
 @NgModule({
     imports:[
@@ -23,6 +25,7 @@ import { OrdersPageComponent } from "./orders-page/orders-page.component";
         AddPageComponent,
         EditPageComponent,
         OrdersPageComponent,
+        QuillModule.forRoot(),
         RouterModule.forChild([
             {
                 path: "", component: AdminLayoutComponent, children: [

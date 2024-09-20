@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { QuillModule } from 'ngx-quill';
-import { AngularEditorModule, AngularEditorConfig } from '@kolkov/angular-editor';
+import { QuillModule } from 'ngx-quill';
 import { CommonModule } from '@angular/common';
 
 import { ProductService } from '../../shared/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-page',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, CommonModule, AngularEditorModule],
+  imports: [FormsModule, ReactiveFormsModule, CommonModule, QuillModule],
   templateUrl: './add-page.component.html',
   styleUrl: './add-page.component.scss'
 })
@@ -20,6 +20,7 @@ export class AddPageComponent implements OnInit {
 
   constructor(
     private productServ: ProductService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -48,8 +49,10 @@ export class AddPageComponent implements OnInit {
       date: new Date()
     }
 
-    // console.log(this.form);
-    console.log('Product created BOSS!')
-    this.productServ.create(product).subscribe( res => console.log(res))
+    this.productServ.create(product).subscribe( res => {
+      this.form.reset();
+      this.submitted = false;
+      this.router.navigate(["/"])
+    })
   }
 }

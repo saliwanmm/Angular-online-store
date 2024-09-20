@@ -2,19 +2,33 @@ export interface FbResponse {
     name: string;
 }
 
-export interface Image {
-    url: string;
-    // інші можливі властивості, наприклад:
-    altText?: string;
-    width?: number;
-    height?: number;
+export interface User {
+    email: string;
+    password: string;
 }
 
+export interface AuthResponse {
+    expiresIn: string;
+    idToken: string;
+  }
+
 export interface Product {
+    id?: string;
     type: string;
     title: string;
-    photo: Image;
+    photo: string;
     info: string;
     price: number;
     date: Date;
+}
+
+export interface Order {
+    id?: string;
+    name: string;
+    phone: string;
+    address: string;
+    payment: string;
+    price: number;
+    date: Date;
+    orders: {title: string}[]
 }
