@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    apiKey: "AIzaSyCjM0B7pZo4VcspwusGQAhbye6KN31h6cE",
-    fbDbUr: "https://online-shop-74fe2-default-rtdb.europe-west1.firebasedatabase.app/",
+    apiKey: "your Api key from https://firebase.google.com/",
+    fbDbUr: "create application here https://firebase.google.com/ and insert Firebase Database URL",
   };
   
